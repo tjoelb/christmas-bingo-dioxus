@@ -4,3 +4,9 @@ install-dx:
 
 serve:
     dx serve --package web
+
+build:
+    dx build --package web
+
+release:
+    dx build --release --package web
