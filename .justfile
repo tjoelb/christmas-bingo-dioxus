@@ -1,0 +1,6 @@
+install-dx:
+    rustup target add wasm32-unknown-unknown
+    curl -sSL https://dioxus.dev/install.sh | bash
+
+serve:
+    dx serve --package web
