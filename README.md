@@ -1,4 +1,21 @@
-# Development
+# Christmas Bingo Dioxus
+
+This is a dioxus implementation of an [Christmas Bingo Angular](https://github.com/tjoelb/christmas-bingo-angular), a simple bingo webapp build for my family to use during our yearly Christmas bingo.
+
+## Features
+
+1. Start and stop buttons.
+2. Ability to change the calling speed.
+3. Ability to call all letters for example call all `N`s when playing large X or four corners.
+4. Uses text to speeach (TTS) to call out.
+
+## Screenshots
+
+![Homepage](./screenshots/hompage.png)
+
+![Calling](./screenshots/calling.png)
+
+## Development
 
 Your new workspace contains a member crate for each of the web, desktop and mobile platforms, a `ui` crate for shared components and a `api` crate for shared backend logic:
 
@@ -19,7 +36,7 @@ your_project/
       └─ ... # Component shared between multiple platforms
 ```
 
-## Platform crates
+### Platform crates
 
 Each platform crate contains the entry point for the platform, and any assets, components and dependencies that are specific to that platform. For example, the desktop crate in the workspace looks something like this:
 
@@ -37,7 +54,7 @@ desktop/ # The desktop crate contains all platform specific UI, logic and depend
 
 When you start developing with the workspace setup each of the platform crates will look almost identical. The UI starts out exactly the same on all platforms. However, as you continue developing your application, this setup makes it easy to let the views for each platform change independently.
 
-## Shared UI crate
+### Shared UI crate
 
 The workspace contains a `ui` crate with components that are shared between multiple platforms. You should put any UI elements you want to use in multiple platforms in this crate. You can also put some shared client side logic in this crate, but be careful to not pull in platform specific dependencies. The `ui` crate starts out something like this:
 
@@ -50,7 +67,7 @@ ui/
 │  ├─ navbar.rs # The Navbar component that will be used in the layout of every platform's router
 ```
 
-## Shared backend logic
+### Shared backend logic
 
 The workspace contains a `api` crate with shared backend logic. This crate defines all of the shared server functions for all platforms. Server functions are async functions that expose a public API on the server. They can be called like a normal async function from the client. When you run `dx serve`, all of the server functions will be collected in the server build and hosted on a public API for the client to call. The `api` crate starts out something like this:
 
@@ -60,7 +77,7 @@ api/
 │  ├─ lib.rs # Exports a server function that echos the input string
 ```
 
-### Serving Your App
+#### Serving Your App
 
 Navigate to the platform crate of your choice:
 
@@ -73,4 +90,3 @@ and serve:
 ```bash
 dx serve
 ```
-
